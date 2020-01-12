@@ -43,9 +43,10 @@ def dz(x,y,z):
 def euler(x,y,z,h):
     print("Iteration 1: ",x,y,z)
     for i in range(2,5,1):
+        x0 = x
         x += h
-        y += dy(x,y,z) * h
-        z += dz(x,y,z) * h
+        y += dy(x0,y,z) * h
+        z += dz(x0,y,z) * h
         print("Iteration ",i,": ",x,y,z)
         
 euler(0.4,2,1,0.2)  

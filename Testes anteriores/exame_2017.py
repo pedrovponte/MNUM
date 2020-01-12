@@ -120,9 +120,10 @@ import math
 #    print("Iteration 0: ",t,C,T)
 #    while(t + h < 0.51):
 #        i += 1
+#        t0 = t
 #        t += h
-#        C += dC(t,C,T) * h
-#        T += dT(t,C,T) * h
+#        C = C + dC(t0,C,T) * h
+#        T = T + dT(t0,C,T) * h
 #        print("Iteration ",i,": ",t,C,T)
 #    return T
 #
@@ -131,18 +132,19 @@ import math
 #    print("Iteration 0: ",t,C,T)
 #    while(t + h < 0.51):
 #        i += 1
+#        t0 = t
 #        t += h
-#        deltaC_1 = h * dC(t,C,T) 
-#        deltaT_1 = h * dT(t,C,T)
-#        deltaC_2 = h * dC(t + h/2, C + deltaC_1/2, T + deltaT_1/2)
-#        deltaT_2 = h * dT(t + h/2, C + deltaC_1/2, T + deltaT_1/2)
-#        deltaC_3 = h * dC(t + h/2, C + deltaC_2/2, T + deltaT_2/2)
-#        deltaT_3 = h * dT(t + h/2, C + deltaC_2/2, T + deltaT_2/2)
-#        deltaC_4 = h * dC(t + h, C + deltaC_3, T + deltaT_3)
-#        deltaT_4 = h * dT(t + h, C + deltaC_3, T + deltaT_3)
+#        deltaC_1 = h * dC(t0,C,T) 
+#        deltaT_1 = h * dT(t0,C,T)
+#        deltaC_2 = h * dC(t0 + h/2, C + deltaC_1/2, T + deltaT_1/2)
+#        deltaT_2 = h * dT(t0 + h/2, C + deltaC_1/2, T + deltaT_1/2)
+#        deltaC_3 = h * dC(t0 + h/2, C + deltaC_2/2, T + deltaT_2/2)
+#        deltaT_3 = h * dT(t0 + h/2, C + deltaC_2/2, T + deltaT_2/2)
+#        deltaC_4 = h * dC(t0 + h, C + deltaC_3, T + deltaT_3)
+#        deltaT_4 = h * dT(t0 + h, C + deltaC_3, T + deltaT_3)
 #        
-#        C += deltaC_1/6 + deltaC_2/3 + deltaC_3/3 + deltaC_4/6
-#        T += deltaT_1/6 + deltaT_2/3 + deltaT_3/3 + deltaT_4/6
+#        C = C + deltaC_1/6 + deltaC_2/3 + deltaC_3/3 + deltaC_4/6
+#        T = T + deltaT_1/6 + deltaT_2/3 + deltaT_3/3 + deltaT_4/6
 #        
 #        print("Iteration ",i,": ",t,C,T)
 #    return T
